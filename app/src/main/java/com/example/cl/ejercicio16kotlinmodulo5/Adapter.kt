@@ -13,9 +13,7 @@ class Adapter: RecyclerView.Adapter <Adapter.ViewHolder>() {
       var paises = mutableListOf<Pais>()
       var callback : PaisCallback? = null
 
-    fun setPaisCallback(c:PaisCallback){
-        this.callback = c
-    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Adapter.ViewHolder {
         var binding =ItemLayoutBinding.inflate(LayoutInflater.from(parent.context),parent , false)
@@ -40,7 +38,7 @@ class Adapter: RecyclerView.Adapter <Adapter.ViewHolder>() {
          val texto = "Pais:${item.nombre} Poblacion:${item.poblacion}"
          binding.txtNombre.text = item.nombre
          binding.bandera.load(item.imgUrl)
-         binding.txtPoblacion.text = item.poblacion.toString()
+         //binding.txtPoblacion.text = item.poblacion.toString()
 
          binding.cardView.setOnClickListener(View.OnClickListener {
              callback?.showCountry(texto)
